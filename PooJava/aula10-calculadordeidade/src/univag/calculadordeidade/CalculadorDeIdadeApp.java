@@ -32,10 +32,14 @@ public class CalculadorDeIdadeApp {
         //Calcular a idade do usuario
         int idade = dataatual.getYear() - datanasc.getYear();
         
-        LocalDate aniversario = datanasc.w
+        LocalDate aniversario = datanasc.withYear(dataatual.getYear());
+        if(aniversario.isAfter(dataatual))
+        {
+        	idade --;
+        }
                 
         //Mostrar a idade do usuario
-        System.out.println("Sua idade é " + (dataatual.getYear() - datanasc.getYear()));
+        System.out.println("Sua idade é " + idade);
         sc.close();
     }
 
